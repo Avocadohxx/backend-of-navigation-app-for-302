@@ -6,7 +6,6 @@ import { DataSource } from 'typeorm';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    // 注入 TypeORM 的数据库连接管理器（无需实体，直接测试连接）
     private dataSource: DataSource,
   ) {}
 
@@ -14,13 +13,16 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+  @Get('cat')
+  getCat(): string {
+    return this.appService.getCat();
+  }
 
-  // 新增测试接口：查询数据库版本
+  //测试连接数据库：浏览器localhost:3000/db-test
   @Get('db-test')
   async testDbConnection() {
     try {
-      // 执行简单的 PostgreSQL 内置查询（获取数据库版本）
-      const result = await this.dataSource.query('SELECT version();');
+      const result = await this.dataSource.query('SELECT * from user_profile;');
       return { 
         success: true, 
         message: '数据库连接成功', 

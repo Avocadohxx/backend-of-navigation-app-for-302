@@ -10,7 +10,7 @@ import { UserProfile } from '../entities/user-profile.entity';
         host: 'localhost',
         port: 5432,
         username: 'postgres',
-        password: 'root890',
+        password: '0318990',
         database: 'postgres',
         entities: [UserProfile], 
         synchronize: true,

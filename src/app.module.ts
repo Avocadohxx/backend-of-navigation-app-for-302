@@ -9,7 +9,7 @@ import { OssModule } from './oss/oss.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true }), //全局可用
     DatabaseModule,
     AuthModule,
     UserModule,
